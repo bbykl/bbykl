@@ -1,0 +1,19 @@
+spring:
+  thymeleaf:
+    cache: false
+
+#    数据源的配置 默认是hikari
+  datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: sxj
+      password: 4127273090...
+      url: jdbc:mysql://127.0.0.1:3306/crm?useUnicode=true&characterEncoding=utf-8
+
+#整合mybatis  配置别名和mapper路径，注意，此处springboot无法打包java目录下的xml文件
+#切记切记一定要在mapper接口加上mapper注解
+mybatis:
+  type-aliases-package: top.bbykl.crm.settings.model
+  mapper-locations: classpath:mybatis/settings/*.xml,mybatis/workbench/*.xml
+logging:
+  level:
+    top.bbykl.crm.workbench.mapper.ActivityMapper : debug
